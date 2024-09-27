@@ -16,10 +16,38 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 */
 
 TaskHandle_t TimeDisplayTaskHandle;
-TaskHandle_t statusDisplayTaskHandle;
+TaskHandle_t StatusDisplayTaskHandle;
 TaskHandle_t GoodByeTaskHandle;
 
+/*
+	* TASK 1, Display time
+*/
+void vDisplayTimeTask(void* pvParameters){
+
+}
+
+
+/*
+	* TASK 2, Display status
+*/
+void vDisplayStatusTask(void* pvParameters) {
+
+}
+
+/*
+	* TASK 3, Display Goodbye 
+*/
+void vGoodByeTask(void* pvParameters){
+
+}
+
+
+/*
+	* Flow setup here
+*/
 
 void setup() {
 
 }
+
+
