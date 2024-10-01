@@ -23,7 +23,16 @@ TaskHandle_t GoodByeTaskHandle;
 	* TASK 1, Display time
 */
 void vDisplayTimeTask(void* pvParameters){
-
+	while (1) {
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Time: 12:34");  // Example time 
+        vTaskDelay(pdMS_TO_TICKS(5000));  // Wait for 5 seconds
+        
+        // Switch to status display task after time
+        vTaskResume(StatusDisplayTaskHandle); 
+        vTaskSuspend(NULL);  // Suspend this task
+    }
 }
 
 
@@ -31,6 +40,16 @@ void vDisplayTimeTask(void* pvParameters){
 	* TASK 2, Display status
 */
 void vDisplayStatusTask(void* pvParameters) {
+	while (1) {
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Status: OK");
+        vTaskDelay(pdMS_TO_TICKS(5000));  // Wait for 5 seconds
+        
+        // Switch to Goodbye task
+        vTaskResume(GoodbyeTaskHandle);  
+        vTaskSuspend(NULL);  // Suspend this task
+    }
 
 }
 
